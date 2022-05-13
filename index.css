@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+
+
+
+/* COMMON */
+body {
+    color: #333; /* 아주 검정색은 잘 안씀 */
+    font-size: 16px; /* 16px로 시작하지 않는 사이트로 있을 수 있기 때문에 명시 */
+    font-weight: 400;
+    line-height: 1.4; /* 1.4 ~ 1.6 */
+    font-family: 'Nanum Gothic', sans-serif;
+    box-sizing: border-box;
+    /* height: 8000px;  */
+    /* 뱃지의 fixed확인 위해 임시로 넣음 */
+  }
+  img {
+    display: block; /* img 태그 원래 inline요소 -> baseline에 맞춰 살짝 밑이 뜨는 현상 잡아줌. 이미지가 꽉참ㅎㅎ */
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .inner { /* inner클래스 추가해서 가운데 정렬, 위치배열위해 relative추가 */
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+/* HEADER */
+header {
+    /* position: relative; 처음에 넣은 값으로 빼도 됨 */
+    width: 100%;
+    /* background-color: #f6f5f0; */
+     /* 확인위해 처음엔 뚜렷한 배경색상넣기 */
+    /* border-bottom: 1px solid #c8c8c8; */
+    position: fixed; /* fixed도 relative역할 됨.(fixed는 뷰포트 기준) */
+    top: 0;
+    /* position: fixed;와 absolute;는 width auto값이 최소로 지정된다. 따라서 header안의 inner값이 120px이기 때문에 header의 width:120px;이다  */
+    z-index: 9;
+    
+  }
+  header h1 {
+      display: block;
+      text-align: center;
+      margin: 60px auto 0 auto;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 50px;
+  }
+  header > .inner{ /* common에 inner 만들면서 여기 inner는 > 자식요소 추가! */
+    /* width: 1100px; common부분에 .inner 만들어서 중복되는 부분 삭제 */
+    height: 120px;
+    /* margin: 0 auto; */
+    /* background-color: orange; 확인위해 배경색상넣기 */
+    /* position: relative; */
+  }
+
+  header .sub-menu {
+    /* background-color: #000; */
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* top: 0px; */
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header .sub-menu ul.menu {
+    font-family: Arial, sans-serif; /* 메뉴는 나눔고딕이 별로 안예쁨. Arial 추천 */
+    display: flex; /* 부모에 display: flex; 넣기 - 수평정렬 */
+  }
+  header .sub-menu ul.menu li {
+    position: relative;
+  }
+  header .sub-menu ul.menu li::before {
+    content: '';
+    /* display: block; => position: absolute;로 자동으로 블럭이 되므로 지우기 */
+    width: 1px;
+    height: 12px;
+    background-color: #e5e5e5;
+     /* 처음에 잘 보이라고 검은색으로 함 */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto; /* 좌우에 해당하는 0은 생략해도 됨 */
+  }
+  header .sub-menu ul.menu li:first-child:before,
+  header .sub-menu ul.menu li:nth-child(2):before {
+    display: none;
+  }
+  header .sub-menu ul.menu li a {
+    /* background-color: red; a태그 영역 확인 위해 배경색깔넣기 */
+    font-size: 12px;
+    color: #656565;
+    display: block;
+    padding: 11px 16px;
+  
+  }
+  header .sub-menu ul.menu li img {
+      width: 30px;
+      padding: 0 10px;
+
+  }
+  header .sub-menu ul.menu li a:hover {
+    color: #000;
+    cursor: pointer;
+    transition: .5s;
+    transform: scale(1.1);
+    font-family: 'Courier New', Courier, monospace;
+  }
+
